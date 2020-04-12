@@ -6,12 +6,21 @@ const covid19ImpactEstimator = (data) => {
     const population = data.region.avgDailyIncomePopulation;
 
 // Normalize timeToElapse to days 
-
-    if (data.periodType === 'weeks') {
-        data.timeToElapse *= 7;
-    } else if (data.periodType === 'months') {
-        data.timeToElapse *= 30;
+function convertTimeToElapse (timeToElapse, period) {
+    switch (periodType.toLowerCase()) {
+        case 'days':
+            period = timeToElapse
+            break;
+            case 'weeks':
+            period = timeToElapse * 7
+            break;
+            period = timeToElapse * 30
+            break;
+            default:      
     }
+    return Math.trunc(period)
+
+}
 
     const days = data.timeToElapse;
     const factor = Math.trunc(days / 3);
