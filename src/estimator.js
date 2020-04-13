@@ -20,9 +20,8 @@ function convertTimeToElapse (timeToElapse, periodType) {
             break;
             default: 
     }
-    return Math.trunc(period);
-    }
 }
+    return Math.trunc(period);
 
     const days = data.timeToElapse;
     const factor = Math.trunc(days / 3);
@@ -48,12 +47,13 @@ function convertTimeToElapse (timeToElapse, periodType) {
     impact.dollarInFlight = impact.infectionsByRequestedTime * income * population * days;
     severeImpact.dollarInFlight = severeInfectionsByRequestedTime * income * population * days;
 
+
     return {
         data = {},
         impact = {},
         severeImpact = {} 
     };
+}
 
-  
 
  export default covid19ImpactEstimator;
