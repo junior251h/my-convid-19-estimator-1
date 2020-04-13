@@ -28,10 +28,10 @@ function convertTimeToElapse (timeToElapse, periodType) {
     impact.currentlyInfected = data.reportedCases * 10;
     severeImpact.currentlyInfected = data.reportedCases * 50;
 
-    impact.infectionsByRequestedTime = impact.currentlyInfected *(2 ** factor);
-    severeImpact.infectionsByRequestedTime = severeImpact.currentlyInfected * (2 ** factor);
-    impact.severeCasesByRequestedTime = 0.15 * impact.infectionsByRequestedTime;
-    severeImpact.severeCasesByRequestedTime = 0.15 * severeImpact.infectionsByRequestedTime;
+    impact.infectionsByRequestedTime = impact.currentlyInfected *(1.5 ** factor);
+    severeImpact.infectionsByRequestedTime = severeImpact.currentlyInfected * (1.5 ** factor);
+    impact.severeCasesByRequestedTime = 0.65 * impact.infectionsByRequestedTime;
+    severeImpact.severeCasesByRequestedTime = 0.65 * severeImpact.infectionsByRequestedTime;
 
     const severeCases = severeImpact.severeCasesByRequestedTime;
     impact.hospitalBedsByRequestedTime = Math.ceil(beds - impact.severeCasesByRequestedTime);
