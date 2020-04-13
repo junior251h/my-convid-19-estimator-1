@@ -6,20 +6,22 @@ const covid19ImpactEstimator = (data) => {
     const population = data.region.avgDailyIncomePopulation;
 
 // Normalize timeToElapse to days 
-function convertTimeToElapse (timeToElapse, period) {
-    switch (periodType.toLowerCase()) {
+function convertTimeToElapse (timeToElapse, periodType) {
+    let period
+    switch (periodType.toLowerCase) {
         case 'days':
             period = timeToElapse
             break;
-            case 'weeks':
+        case 'weeks':
             period = timeToElapse * 7
             break;
+        case 'months':
             period = timeToElapse * 30
             break;
-            default:      
+            default: 
     }
-    return Math.trunc(period)
-
+    return Math.trunc(period);
+    }
 }
 
     const days = data.timeToElapse;
@@ -46,12 +48,12 @@ function convertTimeToElapse (timeToElapse, period) {
     impact.dollarInFlight = impact.infectionsByRequestedTime * income * population * days;
     severeImpact.dollarInFlight = severeInfectionsByRequestedTime * income * population * days;
 
-  
     return {
-        data: Input,
-        impact: {},
-        severeImpact: {}
+        data = {},
+        impact = {},
+        severeImpact = {} 
     };
-};
 
-export default covid19ImpactEstimator;
+  
+
+ export default covid19ImpactEstimator;
